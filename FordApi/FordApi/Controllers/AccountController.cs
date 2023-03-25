@@ -20,7 +20,7 @@ public class AccountController : ControllerBase
     [HttpGet]
     public List<Account> GetAll()
     {
-        List<Account> accountList0 = context.Set<Account>().AsNoTracking().Take(500).ToList();
+        List<Account> accountList0 = context.Set<Account>().Where(x=> x.Email =="deny").AsNoTracking().Take(500).ToList();
         List<Account> accountList = unitOfWork.AccountRepository.GetAll();
         return accountList;
     }

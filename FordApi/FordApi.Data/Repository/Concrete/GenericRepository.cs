@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Linq.Expressions;
 
 namespace FordApi.Data;
 
@@ -58,5 +59,10 @@ public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEnt
     public void Update(TEntity entity)
     {
         entities.Update(entity);
+    }
+
+    public IEnumerable<TEntity> Where(Expression<Func<TEntity, bool>> where)
+    {
+        return entities.Where(where).AsQueryable();
     }
 }

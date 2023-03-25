@@ -21,6 +21,13 @@ public class PersonController : ControllerBase
         return list;
     }
 
+    [HttpGet]
+    public List<Person> Filter(string firstname,string email)
+    {
+        List<Person> list = unitOfWork.PersonRepository.Where(x=> x.Email.Contains(email) || x.FirstName.Contains(firstname)).ToList();
+        return list;
+    }
+
     [HttpGet("{id}")]
     public Person GetById(int id)
     {

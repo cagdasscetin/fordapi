@@ -8,4 +8,5 @@ public interface IGenericRepository<TEntity> where TEntity : class
     void Remove(int id);
     void Update(TEntity entity);
     List<TEntity> GetAll();
+    IEnumerable<TEntity> Where(System.Linq.Expressions.Expression<Func<TEntity, bool>> where);
 }
