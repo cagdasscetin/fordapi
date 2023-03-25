@@ -1,6 +1,7 @@
 ﻿using FordApi.Base;
 using FordApi.Dto;
 using FordApi.Service.Abstract;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
 
@@ -27,6 +28,7 @@ public class PersonController : ControllerBase
        
 
     [HttpGet("{id}")]
+    [Authorize]
     public BaseResponse<PersonDto> GetById(int id)
     {
         Log.Debug("PersonController.GetById");

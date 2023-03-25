@@ -1,3 +1,4 @@
+using FordApi.Base;
 using FordApi.Web;
 using FordApi.Web.Extension;
 using FordApi.Web.Middleware;
@@ -13,15 +14,21 @@ public class Startup
     }
 
     public IConfiguration Configuration { get; }
+    public static JwtConfig JwtConfig { get; private set; }
 
     // This method gets called by the runtime. Use this method to add services to the container.
     public void ConfigureServices(IServiceCollection services)
     {
+        //jwt 
+        JwtConfig = Configuration.GetSection("JwtConfig").Get<JwtConfig>();
+        services.Configure<JwtConfig>(Configuration.GetSection("JwtConfig"));
+
         // inject
         services.AddDbContextDI(Configuration);
         services.AddServices();
         services.AddMapperService();
         services.AddBussinessServices();
+        services.AddJwtAuthentication();   // incoming token validation
 
         services.AddControllers();
         services.AddSwaggerGen(c =>
@@ -46,8 +53,9 @@ public class Startup
         app.UseMiddleware<ErrorHandlerMiddleware>();
         app.UseMiddleware<RequestLoggingMiddleware>();
 
+        // jwt
+        app.UseAuthentication();
         app.UseRouting();
-
         app.UseAuthorization();
 
         app.UseEndpoints(endpoints =>
