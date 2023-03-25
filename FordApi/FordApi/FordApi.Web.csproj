@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\FordApi.Data\FordApi.Data.csproj" />
+    <ProjectReference Include="..\FordApi.Service\FordApi.Service.csproj" />
   </ItemGroup>
 
 </Project>

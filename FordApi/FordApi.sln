@@ -3,15 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32421.90
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FordApi.Web", "FordApi\FordApi.Web.csproj", "{E3F2FCAC-D50E-4F2D-9232-F97C07F07EDB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FordApi.Web", "FordApi\FordApi.Web.csproj", "{E3F2FCAC-D50E-4F2D-9232-F97C07F07EDB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FordApi.Data", "FordApi.Data\FordApi.Data.csproj", "{E2869FBF-2BF3-4C5B-9723-AE4360FC60B1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FordApi.Data", "FordApi.Data\FordApi.Data.csproj", "{E2869FBF-2BF3-4C5B-9723-AE4360FC60B1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FordApi.Base", "FordApi.Base\FordApi.Base.csproj", "{18194E7F-C51C-480D-BFDF-4AF435F612EF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FordApi.Base", "FordApi.Base\FordApi.Base.csproj", "{18194E7F-C51C-480D-BFDF-4AF435F612EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FordApi.Dto", "FordApi.Dto\FordApi.Dto.csproj", "{FB48D658-DBA8-4ECF-BE9D-657393C49397}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FordApi.Dto", "FordApi.Dto\FordApi.Dto.csproj", "{FB48D658-DBA8-4ECF-BE9D-657393C49397}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FordApi.Test", "FordApi.Test\FordApi.Test.csproj", "{90EE8FE3-F1A6-4EE0-9711-F17C5152017F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FordApi.Test", "FordApi.Test\FordApi.Test.csproj", "{90EE8FE3-F1A6-4EE0-9711-F17C5152017F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FordApi.Service", "FordApi.Service\FordApi.Service.csproj", "{E763A5D3-86A2-4E73-81A8-54C3EF10A68E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{90EE8FE3-F1A6-4EE0-9711-F17C5152017F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{90EE8FE3-F1A6-4EE0-9711-F17C5152017F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{90EE8FE3-F1A6-4EE0-9711-F17C5152017F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E763A5D3-86A2-4E73-81A8-54C3EF10A68E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E763A5D3-86A2-4E73-81A8-54C3EF10A68E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E763A5D3-86A2-4E73-81A8-54C3EF10A68E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E763A5D3-86A2-4E73-81A8-54C3EF10A68E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

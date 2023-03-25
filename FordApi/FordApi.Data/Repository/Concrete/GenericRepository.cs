@@ -61,8 +61,8 @@ public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEnt
         entities.Update(entity);
     }
 
-    public IEnumerable<TEntity> Where(Expression<Func<TEntity, bool>> where)
+    public List<TEntity> Where(Expression<Func<TEntity, bool>> where)
     {
-        return entities.Where(where).AsQueryable();
+        return entities.Where(where).ToList();
     }
 }

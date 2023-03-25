@@ -1,6 +1,8 @@
-﻿using FordApi.Data;
+﻿using FordApi.Base;
+using FordApi.Dto;
+using FordApi.Service.Abstract;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 namespace FordApi.Web.Controllers;
 
@@ -8,32 +10,60 @@ namespace FordApi.Web.Controllers;
 [ApiController]
 public class AccountController : ControllerBase
 {
-    private readonly IUnitOfWork unitOfWork;
-    private AppDbContext context;
-    public AccountController(IUnitOfWork unitOfWork, AppDbContext context)
+    private readonly IAccountService service;
+    public AccountController(IAccountService service)
     {
-        this.unitOfWork = unitOfWork;
-        this.context = context;
+        this.service = service;
     }
 
 
     [HttpGet]
-    public List<Account> GetAll()
+    public BaseResponse<List<AccountDto>> GetAll()
     {
-        List<Account> accountList0 = context.Set<Account>().Where(x=> x.Email =="deny").AsNoTracking().Take(500).ToList();
-        List<Account> accountList = unitOfWork.AccountRepository.GetAll();
-        return accountList;
+        Log.Debug("AccountController.GetAll");
+        var response = service.GetAll();
+        return response;
     }
+
+    [HttpGet("{username}")]
+    public BaseResponse<AccountDto> GetByUsername([FromRoute] string username)
+    {
+        Log.Debug("AccountController.GetByUsername");
+        var response = service.GetByUsername(username);
+        return response;
+    }
+
 
     [HttpGet("{id}")]
-    public Account GetById(int id)
+    public BaseResponse<AccountDto> GetById(int id)
     {
-        Account account1 = context.Set<Account>().Find(id);
-        Account account2 = context.Account.Find(id);
-        Account account3 =  unitOfWork.AccountRepository.GetById(id);
-        return account1;
+        Log.Debug("AccountController.GetById");
+        var response = service.GetById(id);
+        return response;
     }
 
+    [HttpPost]
+    public BaseResponse<bool> Post([FromBody] AccountDto request)
+    {
+        Log.Debug("AccountController.Post");
+        var response = service.Insert(request);
+        return response;
+    }
 
+    [HttpPut("{id}")]
+    public BaseResponse<bool> Put(int id, [FromBody] AccountDto request)
+    {
+        Log.Debug("AccountController.Put");
+        var response = service.Update(id, request);
+        return response;
+    }
+
+    [HttpDelete("{id}")]
+    public BaseResponse<bool> Delete(int id)
+    {
+        Log.Debug("AccountController.Delete");
+        var response = service.Remove(id);
+        return response;
+    }
 
 }

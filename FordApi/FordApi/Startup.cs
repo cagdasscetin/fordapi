@@ -20,7 +20,8 @@ public class Startup
         // inject
         services.AddDbContextDI(Configuration);
         services.AddServices();
-
+        services.AddMapperService();
+        services.AddBussinessServices();
 
         services.AddControllers();
         services.AddSwaggerGen(c =>
